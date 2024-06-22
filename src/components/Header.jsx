@@ -4,9 +4,9 @@ import { faUserGraduate } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
   return (
-    <header className="flex flex-row justify-around">
+    <header className="h-10 m-auto text-center">
         <FontAwesomeIcon icon={faUserGraduate} />
-        <span className="text-xl">Curriculum Engine: The Bootleg</span>
+        <span>Curriculum Engine: The Bootleg</span>
     </header>
   )
 }

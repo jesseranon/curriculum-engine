@@ -3,7 +3,7 @@ import StandardItem from './StandardItem'
 
 const StandardGroup = ({group}) => {
   return (
-    <ul className="list-none">
+    <ul className="flex flex-col">
         <li className="text-xl">{group.title}</li>
         {group.standards.map((standard) => {
             return (

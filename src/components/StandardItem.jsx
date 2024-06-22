@@ -4,7 +4,7 @@ import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons'
 
 const StandardItem = ({standardId, description}) => {
   return (
-    <li className="flex flex-row justify-between">
+    <li className="flex flex-row justify-between content-center">
       <div className="w-5/6">
         <p>{standardId}</p>
         <p>{description}</p>

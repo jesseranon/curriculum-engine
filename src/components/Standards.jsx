@@ -33,20 +33,19 @@ const Standards = () => {
   }
 
   return (
-    <section>
-        <div className="flex flex-row justify-around">
+    <section className="w-1/2 max-h-full">
             {loading ? (
                 <Spinner loading={loading} />
             ) : (
                 <>
-                    {currentStrand > 0 && <FontAwesomeIcon icon={faCaretLeft} onClick={() => traverseStrands(-1)} />}
-                    <span className="text-xl">{standards[currentStrand].title}</span>
-                    {currentStrand < 4 && <FontAwesomeIcon icon={faCaretRight} onClick= {() => traverseStrands(1)} />}
-                    <StandardsList strand={standards[currentStrand]} />
+                    <div className="flex flex-row content-baseline justify-center">
+                        <div>{currentStrand > 0 && <FontAwesomeIcon icon={faCaretLeft} onClick={() => traverseStrands(-1)} />}</div>
+                        <div className="text-xl w-60">{standards[currentStrand].title}</div>
+                        <div>{currentStrand < 4 && <FontAwesomeIcon icon={faCaretRight} onClick= {() => traverseStrands(1)} />}</div>
+                    </div>
+                        <StandardsList strand={standards[currentStrand]} />
                 </>
-            )}
-        </div>
-        
+            )}      
     </section>
   )
 }

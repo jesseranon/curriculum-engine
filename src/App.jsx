@@ -14,9 +14,13 @@ function App() {
   return (
     <container className="h-full flex flex-col justify-between">
       <Header />
-      <Standards />
-      <Calendar />
-      <LayersList />
+      <div className="flex flex-row justify-between">
+        <Standards />
+        <div className="flex flex-col justify-around">
+          <Calendar />
+          <LayersList />
+        </div>
+      </div>
       <Footer />
     </container>
   )
