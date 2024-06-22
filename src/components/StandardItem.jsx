@@ -2,11 +2,13 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons'
 
-const StandardItem = ({id, description}) => {
+const StandardItem = ({standardId, description}) => {
   return (
-    <li key={id} className="flex flex-row justify-between">
-      <span>{id}</span>
-      <span>{description}</span>
+    <li className="flex flex-row justify-between">
+      <div className="w-5/6">
+        <p>{standardId}</p>
+        <p>{description}</p>
+      </div>
       <FontAwesomeIcon icon={faCalendarCheck} />
     </li>
   )

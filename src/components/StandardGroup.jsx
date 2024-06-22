@@ -3,10 +3,15 @@ import StandardItem from './StandardItem'
 
 const StandardGroup = ({group}) => {
   return (
-    <ul>
-        <li>{group.title}</li>
+    <ul className="list-none">
+        <li className="text-xl">{group.title}</li>
         {group.standards.map((standard) => {
-            return <StandardItem id={standard.id} description={standard.description} />
+            return (
+              <>
+                <StandardItem key={standard.id} standardId={standard.id} description={standard.description} />
+                {standard.substandards && standard.substandards.map(substandard => <StandardItem key={substandard.id} standardId={substandard.id} description={substandard.description} />)}
+              </>
+            )
         })}
     </ul>
   )
