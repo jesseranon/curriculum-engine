@@ -3,17 +3,14 @@ import StandardItem from './StandardItem'
 
 const StandardGroup = ({group}) => {
   return (
-    <ul className="flex flex-col">
-        <li className="text-xl">{group.title}</li>
-        {group.standards.map((standard) => {
-            return (
-              <>
-                <StandardItem key={standard.id} standardId={standard.id} description={standard.description} />
-                {standard.substandards && standard.substandards.map(substandard => <StandardItem key={substandard.id} standardId={substandard.id} description={substandard.description} />)}
-              </>
-            )
-        })}
-    </ul>
+    <section>
+      <p className="text-md">{group.title}</p>
+      <ul className="flex flex-col text-left">
+          {
+            group.standards.map(standard => <StandardItem key={standard.id} {...standard} />)
+          }
+      </ul>
+    </section>
   )
 }
 
