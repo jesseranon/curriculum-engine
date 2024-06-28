@@ -5,17 +5,17 @@ import SubstandardsDetails from './SubstandardsDetails'
 
 const StandardItem = ({id, description, substandards = []}) => {
   return (
-    <li className="flex flex-row justify-start content-center">
-      <details className="w-5/6">
-        <summary>
+    <li className="flex flex-row justify-between content-stretch align-middle">
+      <details className="w-4/6">
+        <summary className="cursor-pointer">
           {id}
         </summary>
         <p className="text-sm">{description}</p>
         {(substandards.length > 0) && <SubstandardsDetails substandards={substandards} />}
       </details>
-      <span className="w-1/6">
+      <div className="w-1/6 p-4 cursor-pointer text-center">
         <FontAwesomeIcon icon={faCalendarCheck} />
-      </span>
+      </div>
     </li>
   )
 }
