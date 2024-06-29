@@ -3,6 +3,7 @@ import LayersList from './LayersList'
 import Spinner from './Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashArrowUp, faCalendarPlus, faCirclePlus, faLayerGroup } from '@fortawesome/free-solid-svg-icons'
+import DraggableSelection from './DraggableSelection'
 
 const Layers = () => {
   const [layers, setLayers] = useState([])
@@ -32,7 +33,7 @@ const Layers = () => {
     <section className="h-2/5 w-full">
         <div className="text-2xl font-semibold flex flex-row content-center justify-center">
           <span className="w-80">Layers</span>
-          <span className="p-2.5 draggable cursor-pointer"><FontAwesomeIcon icon={faCalendarPlus} /></span>
+          <DraggableSelection classes="p-2.5" id="layer-selector" />
           <button className="p-2.5 restore"><FontAwesomeIcon icon={faTrashArrowUp} /></button>
         </div>
         <div className="text-xl flex flex-row justify-between min-w-full">
