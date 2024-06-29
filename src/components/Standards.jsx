@@ -38,10 +38,10 @@ const Standards = () => {
                 <Spinner loading={loading} />
             ) : (
                 <>
-                    <div className="flex flex-row content-center justify-center">
-                        <div className={`cursor-pointer p-2.5 ${strand === 0 && "pointer-events-none opacity-25"}`} onClick={() => traverseStrands(-1)}><FontAwesomeIcon icon={faCaretLeft} /></div>
-                        <div className="text-2xl w-60">{standards[strand].title}</div>
-                        <div className={`cursor-pointer p-2.5 ${strand === 4 && "pointer-events-none opacity-25"}`} onClick={() => traverseStrands(1)}><FontAwesomeIcon icon={faCaretRight} /></div>
+                    <div className="text-2xl font-semibold flex flex-row content-center justify-center">
+                        <button className={`p-2.5 ${strand === 0 && "pointer-events-none opacity-25"}`} onClick={() => traverseStrands(-1)}><FontAwesomeIcon icon={faCaretLeft} /></button>
+                        <div className="w-80">{standards[strand].title}</div>
+                        <button className={`p-2.5 ${strand === 4 && "pointer-events-none opacity-25"}`} onClick={() => traverseStrands(1)}><FontAwesomeIcon icon={faCaretRight} /></button>
                     </div>
                     <StandardsList className="overflow-y-auto" strand={standards[strand]} />
                 </>

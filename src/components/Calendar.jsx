@@ -48,26 +48,33 @@ const Calendar = () => {
   const calendarArray = generateCalendarArray(displayDateObject)
 
   return (
-    <section className="w-full h-1/2">
-      <div className="flex justify-center">
-        <FontAwesomeIcon icon={faCaretLeft} />
-        <span className="text-xl">{displayDateObject.toFormat('MMMM')}</span>
-        <span className="text-xl">{displayDateObject.toFormat('yyyy')}</span>
-        <FontAwesomeIcon icon={faCaretRight} />
+    <section className="w-full h-3/5">
+      <div className="text-2xl font-semibold flex flex-row content-center justify-center">
+        <button className="p-2.5"><FontAwesomeIcon icon={faCaretLeft} /></button>
+        <span className="w-80">{displayDateObject.toFormat('MMMM')} {displayDateObject.toFormat('yyyy')}</span>
+        <button className="p-2.5"><FontAwesomeIcon icon={faCaretRight} /></button>
       </div>
       
-      <ul className="list-none grid grid-cols-5 grid-rows-4 grid-flow-row w-full">
-        <li>Mon</li>
-        <li>Tue</li>
-        <li>Wed</li>
-        <li>Thu</li>
-        <li>Fri</li>
-        {calendarArray.map((dtObj) => {
-          if (dtObj.weekday < 6) {
-            return <CalendarDay key={`${dtObj.year}-${dtObj.month}-${dtObj.day}`} {...dtObj.c} />
-          }
-        })}
-      </ul>
+      <div className="list-none grid grid-cols-5 grid-rows-2 grid-flow-row w-full">
+        <ul className="text-xl grid grid-cols-5 col-span-full h-10">
+          {["Mon", "Tue", "Wed", "Thu", "Fri"].map((day) => {
+            return (<li key={`heading-${day}`} className="w-40 h-auto">
+              {day}
+            </li>)
+          })}
+        </ul>
+
+        
+
+        <div className="grid grid-cols-5 col-span-full">
+          {calendarArray.map((dtObj) => {
+            if (dtObj.weekday < 6) {
+              return <CalendarDay key={`${dtObj.year}-${dtObj.month}-${dtObj.day}`} {...dtObj.c} />
+            }
+          })}
+        </div>
+        
+      </div>
     </section>
   )
 }

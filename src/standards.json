@@ -444,21 +444,24 @@
                 "title": "First Layer",
                 "lessonPlan": "Text goes here \na text editor is used to\nmake this.",
                 "standards": [],
-                "order": 2
+                "order": 2,
+                "visibility": false
             },
             {
                 "id": 2,
                 "title": "Second Layer",
                 "lessonPlan": "This was the second created layer but it was moved to third in the layer order.",
                 "standards": [],
-                "order": 3
+                "order": 3,
+                "visibility": true
             },
             {
                 "id": 3,
                 "title": "Third Layer",
                 "lessonPlan": "This is the third created layer but it was moved to first in the layer order.",
                 "standards": [],
-                "order": 1
+                "order": 1,
+                "visibility": true
             }
         ]
     }

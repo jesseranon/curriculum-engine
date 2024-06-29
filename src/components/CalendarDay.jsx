@@ -2,7 +2,7 @@ import React from 'react'
 
 const CalendarDay = ({year, month, day}) => {
   return (
-    <li className="w-full h-full">{day}</li>
+    <li className="w-30 h-30">{day}</li>
   )
 }
 

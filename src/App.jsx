@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header'
 import Standards from './components/Standards'
@@ -10,7 +7,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <container className="h-full">
+    <container>
       <Header />
       <div className="flex flex-row justify-between min-h-full">
         <Standards />
