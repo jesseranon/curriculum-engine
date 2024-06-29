@@ -23,7 +23,7 @@ const LayerItem = (props) => {
   }
 
   return (
-    <li className="text-lg flex flex-row justify-around min-w-full text-center" ref={setNodeRef} style={style}>
+    <li id={props.id} className="text-lg flex flex-row justify-around min-w-full text-center" ref={setNodeRef} style={style}>
       <div className="p-2.5 basis-1/5 cursor-pointer"><FontAwesomeIcon icon={faPenToSquare} /></div>
       <div className="p-2.5 basis-1/5 cursor-pointer">
         <FontAwesomeIcon icon={calendarVisibility ? faEye : faEyeSlash} />

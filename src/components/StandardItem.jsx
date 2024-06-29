@@ -9,7 +9,7 @@ const StandardItem = ({id, description, substandards = []}) => {
   //           <FontAwesomeIcon icon={faCalendarCheck} />
   //         </div>
   return (
-    <li className="text-lg flex flex-row justify-between content-stretch align-middle">
+    <li id={id} className="text-lg flex flex-row justify-between content-stretch align-middle">
       <details className="w-5/6">
         <summary className="cursor-pointer">
           {id}

@@ -8,7 +8,7 @@ const CalendarDay = (props) => {
   })
 
   return (
-    <li className="w-30 h-30">
+    <li className="w-30 h-30" id={props.id}>
       {props.day}
       {props.children}
     </li>
