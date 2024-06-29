@@ -6,7 +6,8 @@ import { faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
 
 const DraggableSelection = (props) => {
     const {attributes, listeners, setNodeRef, transform} = useDraggable({
-        id: props.id
+        id: props.id,
+        disabled: props.disabled
     })
     const style = {
         transform: CSS.Translate.toString(transform)

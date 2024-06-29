@@ -12,6 +12,7 @@ const LayerItem = (props) => {
     attributes,
     listeners,
     setNodeRef,
+    setActivatorNodeRef,
     transform,
     transition
   } = useSortable({id: props.id})
@@ -22,13 +23,13 @@ const LayerItem = (props) => {
   }
 
   return (
-    <li className="text-lg flex flex-row justify-around min-w-full text-center" ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <li className="text-lg flex flex-row justify-around min-w-full text-center" ref={setNodeRef} style={style}>
       <div className="p-2.5 basis-1/5 cursor-pointer"><FontAwesomeIcon icon={faPenToSquare} /></div>
       <div className="p-2.5 basis-1/5 cursor-pointer">
         <FontAwesomeIcon icon={calendarVisibility ? faEye : faEyeSlash} />
       </div>
       <div className="p-2.5 basis-2/5 cursor-pointer">{props.title}</div>
-      <div className="p-2.5 basis-1/5 cursor-pointer"><FontAwesomeIcon icon={faUpDown} /></div>
+      <button className="p-2.5 basis-1/5 cursor-pointer" ref={setActivatorNodeRef} {...attributes} {...listeners}><FontAwesomeIcon icon={faUpDown} /></button>
     </li>
   )
 }

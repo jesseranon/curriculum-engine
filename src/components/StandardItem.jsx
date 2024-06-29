@@ -17,12 +17,11 @@ const StandardItem = ({id, description, substandards = []}) => {
         <p className="text-md">{description}</p>
         {(substandards.length > 0) && <SubstandardsDetails substandards={substandards} />}
       </details>
-      {description.indexOf("not applicable") === -1 
-        ? <DraggableSelection classes="w-1/6 p-4 text-center" id={`${id}-selector`} />
-        : <div className={"w-1/6 p-4 text-center opacity-30"}>
-            <FontAwesomeIcon icon={faCalendarCheck} />
-          </div>
-      }
+      <DraggableSelection 
+        id={`${id}-selector`}
+        classes={`w-1/6 p-4 text-center ${description.indexOf("not applicable") > -1 && "opacity-30"}`}
+        disabled={description.indexOf("not applicable") > -1} 
+      />
     </li>
   )
 }
