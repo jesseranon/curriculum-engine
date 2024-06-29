@@ -32,7 +32,7 @@ const Layers = () => {
     <section className="h-2/5 w-full">
         <div className="text-2xl font-semibold flex flex-row content-center justify-center">
           <span className="w-80">Layers</span>
-          <span className="p-2.5 draggable"><FontAwesomeIcon icon={faCalendarPlus} /></span>
+          <span className="p-2.5 draggable cursor-pointer"><FontAwesomeIcon icon={faCalendarPlus} /></span>
           <button className="p-2.5 restore"><FontAwesomeIcon icon={faTrashArrowUp} /></button>
         </div>
         <div className="text-xl flex flex-row justify-between min-w-full">

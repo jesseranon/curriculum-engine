@@ -68,8 +68,9 @@ const Calendar = () => {
 
         <div className="grid grid-cols-5 col-span-full">
           {calendarArray.map((dtObj) => {
+            const id = `${dtObj.year}-${dtObj.month}-${dtObj.day}`
             if (dtObj.weekday < 6) {
-              return <CalendarDay key={`${dtObj.year}-${dtObj.month}-${dtObj.day}`} {...dtObj.c} />
+              return <CalendarDay key={id} id={id} {...dtObj.c} />
             }
           })}
         </div>

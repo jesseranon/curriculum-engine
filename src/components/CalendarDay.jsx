@@ -1,8 +1,15 @@
 import React from 'react'
+import {useDroppable} from '@dnd-kit/core'
+const CalendarDay = () => {
+  // {year, month, day, children = []}
+  const {setNodeRef} = useDroppable({
+    id: props.id
+  })
 
-const CalendarDay = ({year, month, day}) => {
   return (
-    <li className="w-30 h-30">{day}</li>
+    <li className="w-30 h-30">
+      {props.children}
+    </li>
   )
 }
 
