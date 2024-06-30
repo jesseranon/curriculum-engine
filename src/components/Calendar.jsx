@@ -35,23 +35,37 @@ const Calendar = () => {
   // console.log(today.toFormat('yyyy')) //Get year as digits
   
   const generateCalendarArray = (dtObject) => {
-    const calendarArray = []
+    let calendarArray = []
     const monthStartDate = dtObject.set({day: 1})
     const monthStartWeekday = monthStartDate.weekday
+
     if (monthStartWeekday > 1 && monthStartWeekday < 6) {
-      let padCount = 1
-      while (padCount < monthStartWeekday) {
-        calendarArray.push({pad: true, id=`pad-${padCount}`})
-        padCount += 1
-      }
+      const prevMonth = dtObject.minus({month: 1})
+      const endOfPrevMonth = prevMonth.endOf('month')
+      const prevMonthPadStart = endOfPrevMonth.minus({days: monthStartWeekday - 1})
+      calendarArray = calendarArray.concat(generateDays(prevMonthPadStart, endOfPrevMonth))
     }
+
     const monthEndDate = dtObject.endOf('month')
-    let currentDate = monthStartDate
-    while (currentDate < monthEndDate) {
-      calendarArray.push(currentDate)
-      currentDate = currentDate.plus({day: 1})
+    calendarArray = calendarArray.concat(generateDays(monthStartDate, monthEndDate))
+
+    if (monthEndDate.weekday < 6) {
+      const nextMonthPadEnd = monthEndDate.plus({days: 5 - monthEndDate.weekday})
+      const nextMonthPadStart = monthEndDate.plus({days: 1})
+      calendarArray = calendarArray.concat(generateDays(nextMonthPadStart, nextMonthPadEnd))
     }
+
     return calendarArray
+
+    function generateDays(startDateObj, endDateObj) {
+      const days = []
+      let currentDt = startDateObj
+      while (currentDt <= endDateObj) {
+        days.push(currentDt)
+        currentDt = currentDt.plus({day: 1})
+      }
+      return days
+    }
   }
 
   const calendarArray = generateCalendarArray(displayDateObject)
@@ -82,19 +96,12 @@ const Calendar = () => {
         {
           calendarArray.map((dtObj) => {
             if (dtObj.weekday < 6) {
-              if (dtObj.pad) {
-                return (
-                  <CalendarDay key={dtObj.id}  >
-                  </CalendarDay>
-                )
-              }
-              const id = {`${dtObj.year}-${dtObj.month}-${dtObj.day}`}
+              const id = `${dtObj.year}-${dtObj.month}-${dtObj.day}`
               return (
-                <CalendarDay key={id} id={id} {...dtObj.c}>
+                <CalendarDay key={id} id={id} displayMonth={displayDateObject.toFormat('M')} {...dtObj.c}>
                   {dtObj.day}
                 </CalendarDay>
               )
-              
             }
           })
         }

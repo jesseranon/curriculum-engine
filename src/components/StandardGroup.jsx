@@ -5,11 +5,11 @@ const StandardGroup = ({group}) => {
   return (
     <section>
       <p className="text-xl">{group.title}</p>
-      <ul className="flex flex-col text-left">
+      <ol className="flex flex-col text-left">
           {
             group.standards.map(standard => <StandardItem key={standard.id} {...standard} />)
           }
-      </ul>
+      </ol>
     </section>
   )
 }
