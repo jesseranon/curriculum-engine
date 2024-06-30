@@ -44,7 +44,7 @@ const LayersList = (props) => {
     >
       <ol className="min-w-full">
         <SortableContext
-          modifiers={[]}
+          strategy={verticalListSortingStrategy}
           items={layerOrder}
         >
           {layerOrder.map(layer => <LayerItem key={layer.id} id={layer.id} {...layer} />)}
@@ -56,16 +56,16 @@ const LayersList = (props) => {
   function handleDragEnd(event) {
     const {active, over} = event
 
-    if (active.id !== over.id) {
-      setLayerOrder((layerOrder) => {
-        const oldIndex = layerOrder.findIndex(item => item.id === active.id)
-        const newIndex = layerOrder.findIndex(item => item.id === over.id)
+    if (active.id === over.id) return
 
-        return arrayMove(layerOrder, oldIndex, newIndex)
-      })
-    }
+    setLayerOrder((layerOrder) => {
+      const oldIndex = layerOrder.findIndex(item => item.id === active.id)
+      const newIndex = layerOrder.findIndex(item => item.id === over.id)
+
+      return arrayMove(layerOrder, oldIndex, newIndex)
+    })
   }
-  // const [layerOrder, setLayerOrder] = useState(props.layers)
+
 }
 
 export default LayersList

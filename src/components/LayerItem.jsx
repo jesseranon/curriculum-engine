@@ -15,7 +15,12 @@ const LayerItem = (props) => {
     setActivatorNodeRef,
     transform,
     transition
-  } = useSortable({id: props.id})
+  } = useSortable({
+    id: props.id,
+    data: {
+      index: props.index
+    }
+  })
 
   const style = {
     transform: CSS.Transform.toString(transform),
