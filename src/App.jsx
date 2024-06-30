@@ -6,7 +6,8 @@ import Layers from './components/Layers'
 import Footer from './components/Footer'
 import {
   DndContext,
-  closestCenter
+  closestCenter,
+  pointerWithin
 } from '@dnd-kit/core'
 
 function App() {
@@ -14,13 +15,13 @@ function App() {
     <container>
       <Header />
       <DndContext
-        onDragOver={handleDragOver}
-        onDragEnd={handleDragEnd}
-        collisionDetection={closestCenter}
+        // onDragOver={handleDragOver}
+        // onDragEnd={handleDragEnd}
+        collisionDetection={pointerWithin}
       >
-        <div className="flex flex-row justify-between min-h-full">
+        <div className="flex flex-row justify-between min-h-full max-h-full">
           <Standards />
-          <div className="flex flex-col justify-start min-h-full w-1/2">
+          <div className="flex flex-col justify-start min-h-full max-h-full w-1/2">
             <Calendar />
             <Layers />
           </div>
@@ -30,14 +31,14 @@ function App() {
     </container>
   )
 
-  function handleDragOver(event) {
-    const {active, over} = event
-    console.log(over.data)
-  }
+  // function handleDragOver(event) {
+  //   const {active, over} = event
+  //   console.log(over.data)
+  // }
 
-  function handleDragEnd(event) {
-    // console.log(event)
-  }
+  // function handleDragEnd(event) {
+  //   // console.log(event)
+  // }
 }
 
 export default App

@@ -43,7 +43,7 @@ const Standards = () => {
                         <div className="w-80">{standards[strand].title}</div>
                         <button className={`p-2.5 ${strand === 4 && "pointer-events-none opacity-25"}`} onClick={() => traverseStrands(1)}><FontAwesomeIcon icon={faCaretRight} /></button>
                     </div>
-                    <StandardsList className="overflow-y-auto" strand={standards[strand]} />
+                    <StandardsList className="max-h-full overflow-y-auto" strand={standards[strand]} />
                 </>
             )}   
     </section>

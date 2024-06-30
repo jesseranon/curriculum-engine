@@ -11,9 +11,8 @@ const CalendarDay = (props) => {
     <li 
       id={props.id}
       ref={setNodeRef}
-      className={`w-30 h-30 ${isOver && "bg-pink-500"}`}
+      className={`rounded-2xl outline w-full h-28 ${isOver && "bg-pink-500"}`}
     >
-      {props.day}
       {props.children}
     </li>
   )
