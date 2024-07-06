@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/Header'
 import Standards from './components/Standards'
+import Corkboard from './components/Corkboard'
 import Calendar from './components/Calendar'
 import Layers from './components/Layers'
 import Footer from './components/Footer'
@@ -16,15 +17,12 @@ function App() {
       <Header />
       <DndContext
         // onDragOver={handleDragOver}
-        // onDragEnd={handleDragEnd}
+        onDragEnd={handleDragEnd}
         collisionDetection={pointerWithin}
       >
         <div className="flex flex-row justify-between min-h-full max-h-full">
           <Standards />
-          <div className="flex flex-col justify-start min-h-full max-h-full w-1/2">
-            <Calendar />
-            <Layers />
-          </div>
+          <Corkboard />
         </div>
       </DndContext>
       <Footer />
@@ -36,9 +34,11 @@ function App() {
   //   console.log(over.data)
   // }
 
-  // function handleDragEnd(event) {
-  //   // console.log(event)
-  // }
+  function handleDragEnd(event) {
+    const {active, over} = event
+    console.log(active.data)
+    console.log(over.data)
+  }
 }
 
 export default App

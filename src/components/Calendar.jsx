@@ -84,7 +84,7 @@ const Calendar = () => {
         <button className="p-2.5" onClick={() => handleButtonClick(1)}><FontAwesomeIcon icon={faCaretRight} /></button>
       </div>
       
-      <ol className="text-xl grid grid-cols-5 grid-rows-1 grid-flow-row mb-1 gap-3">
+      <ol className="text-xl grid grid-cols-5 grid-rows-1 grid-flow-row mb-1 gap-2">
         {["Mon", "Tue", "Wed", "Thu", "Fri"].map((day) => {
           return (<li key={`heading-${day}`} className="w-28 h-auto">
             {day}
@@ -92,14 +92,14 @@ const Calendar = () => {
         })}
       </ol>
 
-      <ol className="text-xl grid grid-cols-5 grid-rows-5 grid-flow-row gap-3">
+      <ol className="text-xl grid grid-cols-5 grid-rows-5 grid-flow-row gap-2">
         {
           calendarArray.map((dtObj) => {
             if (dtObj.weekday < 6) {
               const id = `${dtObj.year}-${dtObj.month}-${dtObj.day}`
               return (
                 <CalendarDay key={id} id={id} displayMonth={displayDateObject.toFormat('M')} {...dtObj.c}>
-                  {dtObj.day}
+                  <span>{dtObj.day}</span>
                 </CalendarDay>
               )
             }

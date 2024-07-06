@@ -4,15 +4,20 @@ import {useDroppable} from '@dnd-kit/core'
 const CalendarDay = (props) => {
   // {year, month, day, children = []}
   const {isOver, setNodeRef} = useDroppable({
-    id: props.id
+    id: props.id,
+    data: {
+      id: props.id
+    }
   })
+
+  const baseStyle = "rounded outline outline-1 h-20 pl-1 text-sm text-left"
 
   if (props.displayMonth == props.month) {
     return (
         <li 
           id={props.id}
           ref={setNodeRef}
-          className={`cursor-pointer rounded-2xl outline w-full h-28 ${isOver && "bg-pink-500"}`}
+          className={`${baseStyle} cursor-pointer ${isOver && "bg-pink-500"}`}
         >
           {props.children}
         </li>
@@ -22,7 +27,7 @@ const CalendarDay = (props) => {
   return (
     <li 
       id={props.id}
-      className={`rounded-2xl outline w-full h-28 opacity-30 bg-black text-white`}
+      className={`${baseStyle} opacity-30 bg-black text-white`}
     >
       {props.children}
     </li>

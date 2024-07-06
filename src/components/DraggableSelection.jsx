@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
 
 const DraggableSelection = (props) => {
-    const {attributes, listeners, setNodeRef, transform} = useDraggable({
+    const {isDragging, attributes, listeners, setNodeRef, transform} = useDraggable({
         id: props.id,
         disabled: props.disabled
     })
@@ -14,7 +14,7 @@ const DraggableSelection = (props) => {
     }
 
   return (
-    <button className={props.classes} ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <button className={`text-lg ${props.classes}`} ref={setNodeRef} style={style} {...listeners} {...attributes}>
         <FontAwesomeIcon icon={faCalendarPlus} />
     </button>
   )

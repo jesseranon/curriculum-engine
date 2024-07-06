@@ -33,17 +33,17 @@ const Standards = () => {
   }
 
   return (
-    <section className="w-1/2 min-h-full">
+    <section className="w-1/2 px-2 py-4">
             {loading ? (
                 <Spinner loading={loading} />
             ) : (
                 <>
-                    <div className="text-2xl font-semibold flex flex-row content-center justify-center">
+                    <div className="text-xl font-semibold flex flex-row content-center justify-center">
                         <button className={`p-2.5 ${strand === 0 && "pointer-events-none opacity-25"}`} onClick={() => traverseStrands(-1)}><FontAwesomeIcon icon={faCaretLeft} /></button>
                         <div className="w-80">{standards[strand].title}</div>
                         <button className={`p-2.5 ${strand === 4 && "pointer-events-none opacity-25"}`} onClick={() => traverseStrands(1)}><FontAwesomeIcon icon={faCaretRight} /></button>
                     </div>
-                    <StandardsList className="max-h-full overflow-y-auto" strand={standards[strand]} />
+                    <StandardsList strand={standards[strand]} />
                 </>
             )}   
     </section>
